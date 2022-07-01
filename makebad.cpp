@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     if (argc > 1)
         fname = argv[1];
     if (argc > 2)
-      ifsize = stoul(argv[2]);
+      ifsize = stoull(argv[2]);
     if (argc > 3)
         good = true;
 

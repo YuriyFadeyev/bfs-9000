@@ -233,9 +233,9 @@ int main(int argc, char *argv[])
         }
 
         // check input file size
-        auto ifsize = ifs.tellg();
+        auto ifoffs = ifs.tellg();
         ifs.seekg(0, ios::end);
-        ifsize = ifs.tellg() - ifsize;
+        int64_t ifsize = (int64_t) ifs.tellg() - ifoffs; 
 
         if (ifsize < (long int) sizeof(DATATYPE))
         {
@@ -295,6 +295,7 @@ int main(int argc, char *argv[])
         // we need at least 2x bytes for writing and some reserve
         if (freespace < ifsize * 2 + 10000000)
         {
+            cerr << "Not enough disk spase (at least 2x input size required)\n";
             throw std::runtime_error("Not enough disk space.");
         }
 

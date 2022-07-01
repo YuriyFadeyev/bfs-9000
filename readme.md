@@ -22,23 +22,54 @@ Effective max input file size ~= 500 * 120000000 == 60 GB
 
 ## How to build
 
+### Windows
 ```
 g++ -std=c++14 -D_NDEBUG -O3 -lpthread -g bigsort.cpp -o Release\bigsort.exe
 ```
+or batch build
+```
+build_release.bat
+```
 
-## Test configurations
+### Linux
+```
+g++ -std=c++14 -D_NDEBUG -O3 -lpthread -g bigsort.cpp -o Release\bigsort
+```
+or batch build
+```
+./build_release.sh
+```
+
+## How to test
+About 30GB of free disk space is required for passing all the tests.
+
+### Windows
+```
+run_tests.bat
+```  
+For generating random files please download free dummycmd.exe utility at http://www.mynikko.com/dummy/
+
+### Linux
+```
+./run_tests.sh
+```
+
+
+## Tested configurations
 - i7-2630QM/16GB/1TB hdd(+TrueCrypt)  
   Windows 7 x64, g++ (Rev2, Built by MSYS2 project) 12.1.0
 
 - i5-11400H @ 2.70GHz/8GB/512 NVMe  
   Ubuntu 22.04 LTS, g++ (Ubuntu 11.2.0-19ubuntu1) 11.2.0
 
+- Core 2 Duo / 4GB  
+  MacOS Sierra, Apple LLVM version 9.0.0 (clang-900.0.39.2)
+
 
 ## To Do
 
 + Add multithreading support (?)
 + Add better command line parser
-+ Test on MacOS
 
 ## Original Scope of Work (in Russian)
 Тестовое задание:
